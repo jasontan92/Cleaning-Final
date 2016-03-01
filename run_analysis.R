@@ -40,6 +40,9 @@ tidycomb <- comb1 %>%
   gather(key, value, -activity, -test_train, -subject_id) %>%
   extract(col = key, into = c("study","stat","xyz"), "^(.*)\\-(.*)\\(\\)-(.$)")
 
+#Output Data
+write.table(tidycomb, "tidydata.txt")
+
 #Q5 - Second data set
 Q5 <- tidycomb %>%
   filter(stat == "mean") %>%
