@@ -1,7 +1,9 @@
 install.packages(readr)
 install.packages(dplyr)
+install.packages(tidyr)
 library(readr)
 library(dplyr)
+library(tidyr)
 read.table("features.txt") -> features
 
 #reading test files
@@ -43,8 +45,7 @@ tidycomb <- comb1 %>%
 
 #Q5 - Second data set
 Q5 <- tidycomb %>%
-  filter(stat == "mean") %>%
-  group_by(subject_id, activity, xyz) %>%
+  group_by(subject_id,activity ,study ,xyz, stat) %>%
   summarize(mean(value))
 
 #Output Data
